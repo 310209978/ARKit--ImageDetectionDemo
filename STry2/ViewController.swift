@@ -14,21 +14,69 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    var realPoints = [SCNNode]()
+    
+    let configuration = ARWorldTrackingConfiguration()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
         
         // Set the view's delegate
         sceneView.delegate = self
         
+        sceneView.session.run(configuration)
+        
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
+       let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapResponse))
+        sceneView.addGestureRecognizer(tapGesture)
     }
+    
+    @objc func tapResponse(sender: UITapGestureRecognizer) {
+        let scene = sender.view as! ARSCNView
+        let location = scene.center
+        let hitTestResults = scene.hitTest(location, types: .featurePoint)
+        if hitTestResults.isEmpty == false {
+            guard let hitTestResults = hitTestResults.first
+            else { return }
+            let sphereNode = SCNNode()
+            sphereNode.geometry = SCNSphere(radius: 0.003)
+            sphereNode.geometry?.firstMaterial?.diffuse.contents = UIColor.green
+            sphereNode.position = SCNVector3(hitTestResults.worldTransform.columns.3.x, hitTestResults.worldTransform.columns.3.y, hitTestResults.worldTransform.columns.3.z)
+            sceneView.scene.rootNode.addChildNode(sphereNode)
+            realPoints.append(sphereNode)
+            if realPoints.count == 2 {
+            let pointOne = realPoints.first!
+            let pointTwo = realPoints.last!
+            let x = pointTwo.position.x - pointOne.position.x
+            let y = pointTwo.position.y - pointOne.position.y
+            let z = pointTwo.position.z - pointOne.position.z
+            let position = SCNVector3(x, y, z)
+            let distance = sqrt(position.x * position.x +
+            position.y * position.y + position.z * position.z)
+            let x1 = (pointOne.position.x + pointTwo.position.x) / 2
+            let y1 = pointOne.position.y + pointTwo.position.y
+            let z1 = pointOne.position.z + pointTwo.position.z
+            let centerPosition = SCNVector3(x1, y1, z1)
+            displayText(answer: distance, position: centerPosition)
+                    }
+            }
+        
+    }
+    func displayText(answer: Float, position: SCNVector3) {
+        let textDisplay = SCNText(string: "\(answer) meters", extrusionDepth: 0.5)
+        textDisplay.firstMaterial?.diffuse.contents = UIColor.yellow
+        let textNode = SCNNode()
+        textNode.geometry = textDisplay
+        textNode.position = position
+        textNode.scale = SCNVector3(0.003, 0.003, 0.003)
+        sceneView.scene.rootNode.addChildNode(textNode)
+        
+    }
+        
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
