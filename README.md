@@ -1,3 +1,12 @@
-# ARKit-Ruler
-This ruler app will define two feature points detected in the real world, display green spheres to mark their locations, and then calculate the distance between the two virtual objects. Finally, it will display the result on the screen. 
+
+# ARKit--ImageDetectionDemo
+1: Image Detection</br>
+
+2:Displaying Video and Virtual Models </br>
+Displaying Virtual Objects in Mid-Air</br>
+Displaying Video on a Plane</br>
+3: Image Tracking and Object Detection </br>
+Detecting Objects</br>
+Scanning an Object </br>
+Detecting Objects in an App </br>
 

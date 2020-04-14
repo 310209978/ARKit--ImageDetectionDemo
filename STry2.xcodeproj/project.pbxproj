@@ -13,6 +13,7 @@
 		B9AA0ED724459D9A00C4CF06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9AA0ED524459D9A00C4CF06 /* Main.storyboard */; };
 		B9AA0ED924459D9D00C4CF06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9AA0ED824459D9D00C4CF06 /* Assets.xcassets */; };
 		B9AA0EDC24459D9D00C4CF06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9AA0EDA24459D9D00C4CF06 /* LaunchScreen.storyboard */; };
+		B9AA0EE42445B6AE00C4CF06 /* pikaVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = B9AA0EE32445B6AE00C4CF06 /* pikaVideo.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B9AA0ED824459D9D00C4CF06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9AA0EDB24459D9D00C4CF06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9AA0EDD24459D9D00C4CF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9AA0EE32445B6AE00C4CF06 /* pikaVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = pikaVideo.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				B9AA0ED524459D9A00C4CF06 /* Main.storyboard */,
 				B9AA0ED824459D9D00C4CF06 /* Assets.xcassets */,
 				B9AA0EDA24459D9D00C4CF06 /* LaunchScreen.storyboard */,
+				B9AA0EE32445B6AE00C4CF06 /* pikaVideo.mov */,
 				B9AA0EDD24459D9D00C4CF06 /* Info.plist */,
 			);
 			path = STry2;
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9AA0EE42445B6AE00C4CF06 /* pikaVideo.mov in Resources */,
 				B9AA0ED224459D9A00C4CF06 /* art.scnassets in Resources */,
 				B9AA0EDC24459D9D00C4CF06 /* LaunchScreen.storyboard in Resources */,
 				B9AA0ED924459D9D00C4CF06 /* Assets.xcassets in Resources */,
